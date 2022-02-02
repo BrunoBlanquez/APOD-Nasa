@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APOD</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/jquery.js" defer></script>
+  <script src="js/bootstrap.min.js" defer></script>
+  <script type="module" src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand">APOD</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="titulo text-center">Astronomy Picture of the Day</h1>
+      <h1 id="teste"></h1>
+      <p class="text-center">Descubra os cosmos! Cada dia é apresentado por uma fotografia do nosso fascinante universo,
+        juntamente com uma
+        breve explicação escrita por um astrônomo profissional.</p>
+      <h2 class="titulo-apod text-center">Título</h2>
+      <p class="data-apod text-center">Data da imagem</p>
+      <div class="divPai embed-responsive embed-responsive-21by9">
+      </div>
+
+      <p class="explanation-apod text-break fw-normal lh-sm">Explicação da imagem/vídeo</p>
+      <p class="text-center">Pesquisar outra data</p>
+      <div class="novaPesquisa">
+        <input type="date" class="input">
+        <button class="botaoPesquisar">Pesquisar</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-light text-center text-lg-start footer">
+    <div class="text-center p-3">
+      <p class="text-center">&copy; Copyright: Site criado para fins educativos, utilizando Open API pertencente à Nasa
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
