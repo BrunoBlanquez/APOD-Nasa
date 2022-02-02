@@ -35,7 +35,6 @@ export default function api() {
     if (mediaType == 'image') {
       // Crio o elemento HTML
       let img = $('<img>')
-      
       // Crio uma variavel pra segurar o url
       let imgUrl = xhr.responseJSON.url
 
