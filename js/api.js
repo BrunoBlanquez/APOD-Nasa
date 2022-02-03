@@ -3,6 +3,9 @@ export default function api() {
   let divPai = $('.divPai')
   let input = $('.input').val()
   let data = document.querySelector('.input')
+  const dataAtual = new Date().toISOString().slice(0, 10)
+  data.max = dataAtual;
+  data.min = "1995-06-16";
 
   // Executa a função quando carrega a tela
   $(document).ready(function() {
@@ -51,12 +54,10 @@ export default function api() {
       img.removeClass("desativada")
       video.addClass("desativada")
 
-
       // Coloco como filho da div pai
       divPai.append(img)
 
-    } else {       
-      
+    } else {
       // Crio uma variavel pra segurar o url
       let videoUrl = xhr.responseJSON.url
 
@@ -66,7 +67,6 @@ export default function api() {
       // Modifico a classe para aparecer
       video.removeClass("desativada")
       img.addClass("desativada")
-
 
       // Coloco como filho da div pai
       divPai.append(video)
