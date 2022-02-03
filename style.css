@@ -62,3 +62,15 @@
 .setas {
   color: black;
 }
+
+.video {
+  min-width: 70%;
+  min-height: 550px;
+}
+
+@media (max-width: 700px) {
+  .video {
+    min-width: 70%;
+    min-height: 70%;
+  }
+}
