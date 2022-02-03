@@ -15,6 +15,7 @@ export default function api() {
     let valorData = data.value
     input = valorData
     console.log(input)
+    pegaAPI()
   })
 
    // Função para buscar os elementos
@@ -31,34 +32,41 @@ export default function api() {
     // Pego media type para saber se é imagem ou vídeo
     let mediaType = xhr.responseJSON.media_type
 
+    // Pego o elemento HTML
+      let img = $('img')
+
+    //Pego o elemento de vídeo
+      let video = $('iframe')
+
     // Se media-type for imagem, vou criar objeto de img
     if (mediaType == 'image') {
-      // Crio o elemento HTML
-      let img = $('<img>')
+      
       // Crio uma variavel pra segurar o url
       let imgUrl = xhr.responseJSON.url
 
       // Adiciono atributo src e defino url
       img.attr('src', imgUrl)
 
-      // Adiciono atributo class
-      img.attr('class', 'img-apod img-fluid text-center')
+      // Modifico a classe para aparecer
+      img.removeClass("desativada")
+      video.addClass("desativada")
+
 
       // Coloco como filho da div pai
       divPai.append(img)
 
     } else {       
-      //Criando o elemento de vídeo
-      let video = $('<iframe>')
-
+      
       // Crio uma variavel pra segurar o url
       let videoUrl = xhr.responseJSON.url
 
       // Adiciono atributo src e defino url
       video.attr('src', videoUrl)
 
-      // Adiciono atributo class
-      video.attr('class', "embed-responsive-item")
+      // Modifico a classe para aparecer
+      video.removeClass("desativada")
+      img.addClass("desativada")
+
 
       // Coloco como filho da div pai
       divPai.append(video)
@@ -67,11 +75,6 @@ export default function api() {
     },
   })
   }
-  
-  function alteraAPI() {
 
-  }
-
-  
   
 }

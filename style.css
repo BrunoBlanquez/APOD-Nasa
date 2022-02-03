@@ -7,6 +7,10 @@
   margin-top: 15px;
 }
 
+.footer {
+  margin-top: 150px;
+}
+
 .footer p {
   color: black;
 }
@@ -42,4 +46,18 @@
 .novaPesquisa {
   display: flex;
   justify-content: center;
+}
+
+.desativada {
+  display: none;
+}
+
+.central {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.setas {
+  color: black;
 }
