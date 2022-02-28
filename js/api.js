@@ -1,6 +1,5 @@
 export default function api() {
-   // Pego a div pai para ser usada na criação de elementos (img x video)
-  let divPai = $('.divPai')
+  // Pego a div pai para ser usada na criação de elementos (img x video)
   let input = $('.input').val()
   let data = document.querySelector('.input')
   const dataAtual = new Date().toISOString().slice(0, 10)
@@ -17,7 +16,6 @@ export default function api() {
   botao.on('click', function(){
     let valorData = data.value
     input = valorData
-    console.log(input)
     pegaAPI()
   })
 
@@ -32,46 +30,34 @@ export default function api() {
     let titulo = $('.titulo-apod').text(xhr.responseJSON.title)
     let data = $('.data-apod').text(xhr.responseJSON.date)
     let explanation = $('.explanation-apod').text(xhr.responseJSON.explanation)
-    // Pego media type para saber se é imagem ou vídeo
-    let mediaType = xhr.responseJSON.media_type
-
-    // Pego o elemento HTML
+   
+    // Pego o elemento img
       let img = $('img')
 
     //Pego o elemento de vídeo
       let video = $('iframe')
+    
+    // Pego a url
+    let url = xhr.responseJSON.url
 
     // Se media-type for imagem, vou criar objeto de img
-    if (mediaType == 'image') {
-      
-      // Crio uma variavel pra segurar o url
-      let imgUrl = xhr.responseJSON.url
+    if (xhr.responseJSON.media_type == 'image') {
 
-      // Adiciono atributo src e defino url
-      img.attr('src', imgUrl)
+      // Adiciono atributo src e defino url da imagem
+      img.attr('src', url)
 
-      // Modifico a classe para aparecer
+      // Modifico a classe para aparecer imagem e tirar o vídeo
       img.removeClass("desativada")
       video.addClass("desativada")
 
-      // Coloco como filho da div pai
-      divPai.append(img)
-
     } else {
-      // Crio uma variavel pra segurar o url
-      let videoUrl = xhr.responseJSON.url
+      // Adiciono atributo src e defino url do video
+      video.attr('src', url)
 
-      // Adiciono atributo src e defino url
-      video.attr('src', videoUrl)
-
-      // Modifico a classe para aparecer
+      // Modifico a classe para aparecer o vídeo e tirar a imagem
       video.removeClass("desativada")
       img.addClass("desativada")
-
-      // Coloco como filho da div pai
-      divPai.append(video)
     }
-    // console.log(xhr.responseJSON)
     },
   })
   }
